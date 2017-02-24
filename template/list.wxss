@@ -1,0 +1,66 @@
+
+.empty-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+    background-color: #f7f7f7;
+}
+.item{
+    height: 280rpx;
+    background-color: #ffffff;
+    border-radius: 30rpx;
+    border: 1rpx;
+    margin-top: 10rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    padding: 20rpx;
+}
+.item-name{
+    font-size: 30px;
+    margin-left: 55rpx;
+    color: #000;
+}
+.item-row{
+    margin-top: 15rpx;
+}
+.item-row-tip{
+    text-align: end;
+}
+.item-row-tip text{
+    color:lightgray;
+    font-size: 15px;
+}
+.item-money{
+    flex: 1;
+    text-align: end;
+}
+.item-money text{
+    color: #f24141;
+}
+
+.item-flex-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+/*添加按钮样式*/
+.btn-add{
+    display: flex;
+    position: fixed;
+    bottom: 60rpx;
+    right: 50rpx;
+    width: 100rpx;
+    height: 100rpx;
+    background-color: #f48fb1;
+    border: 1rpx;
+    border-radius: 50rpx;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.btn-add text{
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}

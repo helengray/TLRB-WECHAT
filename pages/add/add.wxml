@@ -1,0 +1,21 @@
+<view class="container">
+    <form bindsubmit="submit">
+        <input placeholder="姓名" type="text" focus="true" name="name"/>
+        <view class="divider"/>
+        <input placeholder="金额" type="digit" name="money"/>
+        <view class="divider"/>
+        <picker mode="date" bindchange="bindDateChange" style="flex:1">
+           <input placeholder="时间" type="text" disabled="{{true}}" value="{{date}}" name="time"/>
+        </picker>
+        <view class="divider"/>
+        <view class="flex-row">
+            <picker mode="selector" bindchange="bindCategoryChange" range="{{categoryNames}}" style="flex:1">
+                <input placeholder="关系" type="text" disabled="{{true}}" value="{{categoryNames[categoryIndex]}}" name="categoryName"/>
+            </picker>
+            <!--<button size="default" type="warn" plain="{{false}}" bindtap="bindAddCategory">添加组别</button>-->
+        </view>
+        <view class="divider"/>
+        <textarea placeholder="备注" type="text" maxlength="{{140}}" name="remark"/>
+        <button form-type="submit" type="primary">提交</button>
+    </form>
+</view>

@@ -1,0 +1,38 @@
+
+.container{
+    display: flex;
+    flex: 1;
+    padding: 50rpx;
+    border: 5rpx;
+    border-color: black; 
+}
+.container form{
+    flex:1;
+}
+.container input{
+    flex: 1;
+    background-color: white;
+    height: 80rpx;
+    padding-left: 15rpx;
+}
+.container textarea{
+    flex: 1;
+    background-color: white;
+    padding-left: 15rpx;
+    width: auto;
+    margin-bottom: 80rpx;
+}
+.container button{
+    margin: 0
+}
+
+.flex-row{
+    display:flex;
+    flex-direction:row;
+    background-color: white;
+}
+
+.divider{
+    height: 4rpx;
+    background-color: #f7f7f7;
+}

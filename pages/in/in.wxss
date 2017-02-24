@@ -1,0 +1,4 @@
+@import "../../template/list.wxss";
+.item-money text{
+    color: #289b62;
+}

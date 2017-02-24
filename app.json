@@ -1,0 +1,29 @@
+{
+  "pages":[
+    "pages/out/out",
+    "pages/in/in",
+    "pages/login/login",
+    "pages/add/add"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "black",
+    "navigationBarTitleText": "小红本",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+      "list": [{
+        "pagePath": "pages/out/out",
+        "text": "支出"
+      },{
+        "pagePath": "pages/in/in",
+        "text": "收入"
+      }],
+      "color": "#000000",
+      "selectedColor": "#f48fb1",
+      "borderStyle": "white",
+      "position":"bottom",
+      "backgroundColor":"#fff"
+    },
+  "debug":true
+}

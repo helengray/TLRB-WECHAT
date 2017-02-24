@@ -1,0 +1,32 @@
+@import "../../template/list.wxss";
+/*.empty-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+}
+.item{
+    height: 280rpx;
+    background-color: #ffffff;
+    border-radius: 30rpx;
+    border: 1rpx;
+    margin-top: 10rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    padding: 20rpx;
+}
+.item-name{
+    font-size: 30px;
+    margin-left: 55rpx;
+    color: #000
+}
+.item-row{
+    margin-top: 15rpx;
+}
+.item-row-tip{
+    text-align: end;
+}
+.item-row-tip text{
+    color:lightgray;
+    font-size: 15px;
+}*/

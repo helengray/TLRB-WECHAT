@@ -1,0 +1,32 @@
+
+<template name="dataList">
+    <view wx:if="{{redBomb.length > 0}}" class="container">
+        <view wx:for="{{redBomb}}" class="item" wx:key="{{index}}">
+            <view class="item-flex-row">
+                <view>
+                    <text class="item-name">{{item.name}}</text>
+                    <view class="item-row">
+                        <text>组别：{{item.categoryName == ""?"默认":item.categoryName}}</text>
+                    </view>
+                    <view class="item-row">
+                        <text>日期：{{item.time}}</text>
+                    </view>
+                    <view class="item-row">
+                        <text>备注：{{item.remark}}</text>
+                    </view>
+                </view>
+                <view class="item-money">
+                    <text>{{item.type == 1?"+":"-"}}{{item.money}}</text>
+                </view>
+            </view>
+            
+            <view class="item-row-tip">
+                <text>{{item.createdAt}}</text>
+            </view>
+            
+        </view>
+    </view>
+    <view wx:else class="empty-container">
+        <text>暂无数据</text>
+    </view>
+</template>

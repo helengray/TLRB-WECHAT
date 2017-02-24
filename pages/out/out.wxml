@@ -1,0 +1,8 @@
+<import src="../../template/list.wxml"/>
+<template is="dataList" data="{{redBomb}}"/>
+<loading hidden="{{!loading}}">加载中...</loading>
+<navigator url="/pages/add/add?type=2" open-type="navigate">
+    <view class="btn-add">
+        <text>添加</text>
+    </view>
+</navigator>
