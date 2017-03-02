@@ -32,14 +32,14 @@ Page({
     },
     onReachBottom: function() {//到达底部
         // Do something when page reach bottom.
-        console.log("onReachBottom");
+        //console.log("onReachBottom");
         this.setData({
             loading:true
         });
         this.getDataList();
     },
     onPullDownRefresh:function(){//下拉刷新
-        console.log("onPullDownRefresh");
+        //console.log("onPullDownRefresh");
         dataList = [];
         index = 1;
         this.getDataList();

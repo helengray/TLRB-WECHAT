@@ -5,7 +5,6 @@ var app = getApp();
 
 
 function getHeader(){
-  var account = app.globalData.userInfo;
   var header = {
      'content-type':'application/json',
      'X-Bmob-Application-Id':'c1aa552ec6d7639a92f11a362ff22b34',
@@ -15,34 +14,53 @@ function getHeader(){
   return header;
 }
 
-function register(userInfo){//注册
-    console.log(userInfo);
+function register(username,password,cb){//注册
     wx.request({
       url: URL+'1/users',
       data: {
-          'nickname':'测试',
           'type':4,
-          'username':'test',
-          'password':'123456'
+          'username':username,
+          'password':password
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      header: {// 设置请求的 header
-          'content-type':'application/json',
-          'X-Bmob-Application-Id':'c1aa552ec6d7639a92f11a362ff22b34',
-          'X-Bmob-REST-API-Key':'a93c8e5501c9f2ed942ae1cff46ccd77'
-      }, 
+      header: getHeader(), 
       success: function(res){
-        // success
-        console.log("success"+res);
+        console.log(res);
+        if(cb){
+            cb(res);
+        }
+        let code = res.statusCode;
+        if(code == 201){
+          let id = res.data.objectId;
+          let token = res.data.sessionToken;
+          app.globalData.token = token;
+          updateUserACL(id);
+        }
+        
       },
       fail: function(e) {
-        // fail
-        console.log("fail "+e);
+        if(cb){
+          cb(null);
+        }
       },
       complete: function() {
-        console.log("complete");
+        
       }
     })
+}
+
+function updateUserACL(accoutId){
+  let acl={};
+  acl[accoutId]={"write":true,"read":true};
+  let data = {
+    'ACL':acl
+  }
+  wx.request({
+    url: URL+'1/users/'+accoutId,
+    data: data,
+    method: 'PUT', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    header: getHeader()
+  })
 }
 
 function login(username,password,cb){//登录
@@ -59,6 +77,19 @@ function login(username,password,cb){//登录
       success: function(res){
         // success
         console.log(res);
+        let code = res.statusCode;
+        if(code === 200){
+            var account = res.data;
+            wx.setStorageSync('account',account);
+            app.globalData.userInfo = account;
+            app.globalData.token = account.sessionToken;
+            let id = res.data.objectId;
+            let ACL = res.data.ACL;
+            if(!ACL){
+              console.log('ACL 为空');
+              updateUserACL(id);
+            }
+        }
         if(cb){
           cb(res);
         }
@@ -197,6 +228,7 @@ function getCategoryList(cb){//获取组别
 
 module.exports = {
     login:login,
+    register:register,
     getRedBomList:getRedBomList,
     addRedBomb:addRedBomb,
     getCategoryList:getCategoryList

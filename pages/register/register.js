@@ -4,7 +4,7 @@ Page({
     data:{
         loading:false
     },
-    login:function(event){
+    register:function(event){
         var username = event.detail.value.user;
         var password = event.detail.value.pswd;
         if(username =='' || password == ''){
@@ -15,27 +15,33 @@ Page({
             loading:true
         });
         var that = this;
-        api.login(username,password,function(res){
+        api.register(username,password,function(res){
             that.setData({
                 loading:false
             });
+            
             if(res){
-                var code = res.statusCode;
-                if(code === 200){
-                    wx.navigateBack();
-                }else if(code === 404){
-                    that.showToast('用户名或密码错误');
+                let code = res.statusCode;
+                if(code == 201){
+                    that.showToast("恭喜注册成功");
+                    setTimeout(function(){
+                        wx.navigateBack();
+                    },2000);
+                    
+                }else if(code == 404 && res.data.code == 202){
+                    that.showToast("该用户已存在");
                 }else{
-                    that.showToast('请求失败');
+                    that.showToast("注册失败");
                 }
+                
             }else{
-                that.showToast('请求失败');
+                that.showToast("注册失败");
             }
             
         });
     },
-    register:function(){
-        wx.navigateTo({url: '/pages/register/register'});
+    login:function(){
+        wx.navigateBack();
     },
     showToast:function(msg){
         wx.showToast({

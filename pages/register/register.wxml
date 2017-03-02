@@ -1,0 +1,23 @@
+<form bindsubmit="register">
+    <view class="container">
+    
+        <view class="motto">
+            <text class="motto-title">小红本</text>
+            <text class="motto-welcome">——欢迎注册</text>
+        </view>
+        
+        <view class="flex-row">
+            <image src="/img/icon_user.png"/>
+            <view class="flex-row-divider" mode="aspectFit"/>
+            <input placeholder="用户名" type="text" focus="{{true}}" name="user"/>
+        </view>
+        <view class="flex-row" style="margin-top:5rpx;">
+            <image src="/img/icon_password.png"/>
+            <view class="flex-row-divider" mode="aspectFit"/>
+            <input placeholder="密码" type="password" name="pswd"/>
+        </view>
+        <text class="register" bindtap="login">去登录</text>
+        <button type="primary" loading="{{loading}}" form-type="submit" >注册</button>
+        
+    </view>
+</form>

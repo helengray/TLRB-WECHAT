@@ -3,6 +3,7 @@
     "pages/out/out",
     "pages/in/in",
     "pages/login/login",
+    "pages/register/register",
     "pages/add/add"
   ],
   "window":{
